@@ -1,10 +1,12 @@
 "use server";
 
-export async function getCount() {
-    return 1;
-}
+import { cache } from "react";
 
-export async function getSearchResults(id: string) {
+export const getCount = cache(async () => {
+    return 1;
+});
+
+export const getSearchResults = cache(async (id: string) => {
     console.log("getSearchResults", id);
     return [
         {
@@ -35,4 +37,4 @@ export async function getSearchResults(id: string) {
             url: `https://example.com/results/${id}/3`
         }
     ];
-}
+});
