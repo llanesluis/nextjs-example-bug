@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Count from "./components/count";
 import SearchResults from "./components/search-results";
+import { sleep } from "@/lib/utils";
 
 interface ResultPageProps {
   params: Promise<{ id: string }>;
@@ -9,6 +10,7 @@ interface ResultPageProps {
 export default async function ResultPage({ params }: ResultPageProps) {
   console.log("rendering ResultPage");
 
+  await sleep(1000);
   const id = (await params).id;
 
   return (
